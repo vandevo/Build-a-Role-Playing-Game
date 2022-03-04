@@ -6,8 +6,7 @@ Challenge:
 2. Do the same for Orc card. 
 */
 
-const heroDiv = document.getElementById('hero')
-hero.innerHTML = `
+document.getElementById('hero').innerHTML = `
    <div class="character-card">
    <h4 class="name"> Wizard </h4>
    <img class="avatar" src="images/wizard.png"/>
@@ -16,8 +15,7 @@ hero.innerHTML = `
    </div>    
 `
 
-const monsterDiv = document.getElementById('monster')
-monster.innerHTML = `
+document.getElementById('monster').innerHTML = `
    <div class="character-card">
    <h4 class="name"> Orc </h4>
    <img class="avatar" src="images/orc.png"/>
