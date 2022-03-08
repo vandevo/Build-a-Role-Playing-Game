@@ -26,9 +26,12 @@ const monster = {
 
 
 function renderCharacter(data){
-   const {elementID, name, avatar, health, diceRoll} = data;
+   const {elementID, name, avatar, health, diceRoll, diceCount} = data;
 
-   
+   let diceHtml = ""
+   for (let i = 0; i < diceCount; i++) {
+      diceHtml += `<div class="dice">6</div>`;
+   }
 
 
    document.getElementById(elementID).innerHTML = `
@@ -36,7 +39,7 @@ function renderCharacter(data){
    <h4 class="name">${name}</h4>
    <img class="avatar" src="${avatar}"/>
    <p class="health">health: <b> ${health} </b></p>
-   <div class="dice-container"><div class="dice">${diceRoll}</div></div>
+   <div class="dice-container">${diceHtml}</div>
    </div>    
 `}
 
