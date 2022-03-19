@@ -14,21 +14,25 @@ return new Array(diceCount).fill(0).map(function(){
 
 }
 
-const hero = {
-   elementID: "hero",
-   name: "Wizard",
-   avatar: "/images/wizard.png",
-   health: 60,
-   diceCount: 3
+const characterData = {
+   hero: {
+      elementID: "hero",
+      name: "Wizard",
+      avatar: "/images/wizard.png",
+      health: 60,
+      diceCount: 3
+   },
+   
+   monster: {
+      elementID: "monster",
+      name:"Orc",
+      avatar: "/images/orc.png",
+      health: 10,
+      diceCount: 1
+   }
 }
 
-const monster = {
-   elementID: "monster",
-   name:"Orc",
-   avatar: "/images/orc.png",
-   health: 10,
-   diceCount: 1
-}
+
 
 
 function Character(data){
@@ -46,7 +50,7 @@ function Character(data){
       let diceHtml = this.getDiceHtml(diceCount)
    
    
-      document.getElementById(elementID).innerHTML = `
+      return `
       <div class="character-card">
       <h4 class="name">${name}</h4>
       <img class="avatar" src="${avatar}"/>
@@ -56,8 +60,15 @@ function Character(data){
    `}
    }
 
-const wizard = new Character(hero)
-const orc = new Character(monster)
 
-wizard.getCharacterHtml()
-orc.getCharacterHtml()
+
+
+function render(){
+   document.getElementById(wizard.elementID).innerHTML = wizard.getCharacterHtml()
+   document.getElementById(orc.elementID).innerHTML = orc.getCharacterHtml()
+}
+
+const wizard = new Character(characterData.hero)
+const orc = new Character(characterData.monster)
+
+render()
