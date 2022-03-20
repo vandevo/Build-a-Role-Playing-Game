@@ -13,4 +13,6 @@ const characterData = {
         health: 10,
         diceCount: 1
     }
-}
+ }
+
+ export default characterData
