@@ -1,5 +1,6 @@
 import {getDiceRollArray} from "./utils.js"
 
+
 function Character(data) {
     Object.assign(this, data)
     
