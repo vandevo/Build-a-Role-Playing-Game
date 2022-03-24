@@ -146,8 +146,8 @@ main {
 }
 
 .dice, .placeholder-dice{
-    height:5.5vh;
-    width:5.5vh;
+    height:4.5vh;
+    width:4.5vh;
     background: #fff;   
     border-radius: 5px;
     border:1px solid #666;
@@ -158,8 +158,8 @@ main {
 
 @media(min-width:550px){
 .dice-container .dice, .dice-container .placeholder-dice{
-    height:10vh;
-    width:10vh;
+    height:7vh;
+    width:7vh;
     line-height: 10.5vh;
 }
 }

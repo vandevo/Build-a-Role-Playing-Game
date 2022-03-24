@@ -2,11 +2,12 @@ import {getDiceRollArray, getDicePlaceholderHtml} from "./utils.js"
 
 function Character(data) {
     Object.assign(this, data)
+
+
     this.diceArray = getDicePlaceholderHtml(this.diceCount)
+
     this.getDiceHtml = function(diceCount) {
-        return getDiceRollArray(diceCount).map(function(num){ 
-            return  `<div class="dice">${num}</div>`
-        }).join('')
+        this.currentDiceScore = getDiceRollArray(this.diceCount)
     }
  
     this.getCharacterHtml = function () {
