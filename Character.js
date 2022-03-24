@@ -8,8 +8,16 @@ function Character(data) {
 
     this.getDiceHtml = function(diceCount) {
         this.currentDiceScore = getDiceRollArray(this.diceCount)
+        this.diceArray = this.currentDiceScore.map(function(dice){
+            return `<div class="dice">${dice}</div>`
+        }).join('')
     }
  
+
+    this.takeDamage = function(){
+        console.log(`${this.name}is damaged`)
+    }
+
     this.getCharacterHtml = function () {
         const { elementId, name, avatar, health, diceCount, diceArray } = this;      
         let diceHtml = this.getDiceHtml(diceCount);
