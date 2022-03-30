@@ -12,8 +12,14 @@ function attack(){
    wizard.takeDamage(wizard.currentDiceScore)
    orc.takeDamage(orc.currentDiceScore)
    render()
+   if(wizard.dead | orc.dead){
+      endGame()
+   }
 }
 
+function endGame(){
+   console.log('The Game Is Over')
+}
 
 
 document.getElementById('attack-button').addEventListener('click', attack)
