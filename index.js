@@ -18,7 +18,10 @@ function attack(){
 }
 
 function endGame(){
-   console.log('The Game Is Over')
+   const endMessage = wizard.health === 0 && orc.health === 0 ? "No victors - all creatures are dead" :
+   wizard.health > 0 ? "The wizard wins!" : "The orc wins!"
+   console.log(endMessage)
+
 }
 
 
