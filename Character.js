@@ -4,6 +4,7 @@ const getPercentage = (remainingHealth, maximumHealth) =>
     (100 * remainingHealth) / maximumHealth
 
 
+
 function Character(data) {
     Object.assign(this, data)
 
@@ -32,9 +33,14 @@ function Character(data) {
         
     }
 
+    this.getHealthBarHtml = function (){
+        const percent = getPercentage(this.health, this.maxHealth)
+        console.log(percent)
+    }
+
     this.getCharacterHtml = function () {
-        const { elementId, name, avatar, health, diceCount, diceArray } = this;      
-        let diceHtml = this.getDiceHtml(diceCount);
+        const { elementId, name, avatar, health, diceCount, diceArray } = this;    
+        const healthBar = this.getHealthBarHtml()  
         
            return `
             <div class="character-card">
