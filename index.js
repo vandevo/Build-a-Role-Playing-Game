@@ -4,18 +4,19 @@ import Character from "./Character.js"
 let monstersArray = ["orc", "demon", "goblin"];
 
 function getNewMonster(){
-   nextMonsterData = characterData[monstersArray.shift()] 
+   const nextMonsterData = characterData[monstersArray.shift()] 
+   return nextMonsterData ? new Character(nextMonsterData) : {}
 }
 
 
 
 function attack(){
    wizard.getDiceHtml()
-   orc.getDiceHtml()
+   monster.getDiceHtml()
    wizard.takeDamage(wizard.currentDiceScore)
-   orc.takeDamage(orc.currentDiceScore)
+   monster.takeDamage(monster.currentDiceScore)
    render()
-   if(wizard.dead | orc.dead){
+   if(wizard.dead | monster.dead){
       endGame()
    }
 }
@@ -23,7 +24,7 @@ function attack(){
 function endGame(){
    
 
-   const endMessage = wizard.health === 0 && orc.health === 0 ? "No victors - all creatures are dead" :
+   const endMessage = wizard.health === 0 && monster.health === 0 ? "No victors - all creatures are dead" :
    wizard.health > 0 ? "The wizard wins!" : "The orc wins!"
    console.log(endMessage)
 
@@ -40,12 +41,12 @@ function endGame(){
 document.getElementById('attack-button').addEventListener('click', attack)
 
 function render() {
-   document.getElementById(wizard.elementId).innerHTML = wizard.getCharacterHtml();
-   document.getElementById(orc.elementId).innerHTML = orc.getCharacterHtml();
+   document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+   document.getElementById('monster').innerHTML = monster.getCharacterHtml();
 }
 
 const wizard = new Character(characterData.hero)
-const orc = new Character(characterData.monster)
+let monster = getNewMonster()
 render()
 
 
