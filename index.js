@@ -16,8 +16,18 @@ function attack(){
    wizard.takeDamage(wizard.currentDiceScore)
    monster.takeDamage(monster.currentDiceScore)
    render()
-   if(wizard.dead | monster.dead){
+
+
+   if(wizard.dead){
       endGame()
+   } else if (monster.dead){
+      if(monstersArray.length > 0){
+         monster = getNewMonster()
+         render()
+      }
+      else{
+         endGame()
+      }
    }
 }
 
